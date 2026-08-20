@@ -156,7 +156,12 @@ export default function App() {
   };
 
   return (
-    <div id="top">
+    <div
+      id="top"
+      className={`app-shell app-shell--${screen}${
+        screen === "landing" && vaultUnlocked ? " app-shell--extended" : ""
+      }`}
+    >
       <a className="skip-link" href="#main">
         {siteConfig.copy.skipLink}
       </a>
