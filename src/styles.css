@@ -659,6 +659,16 @@ p {
   margin-top: 28px;
 }
 
+.project-links__back-to-top {
+  display: flex;
+  width: fit-content;
+  min-height: 44px;
+  align-items: center;
+  margin: 20px 0 0 auto;
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
 .pill {
   display: inline-flex;
   min-height: 48px;
@@ -778,13 +788,6 @@ p {
   line-height: 1.35;
 }
 
-.site-footer a {
-  width: fit-content;
-  min-height: 36px;
-  color: var(--paper);
-  font-size: clamp(0.72rem, 1.7vh, 0.8rem);
-}
-
 @media (hover: hover) {
   a:hover {
     color: var(--pumpkin);
@@ -844,6 +847,20 @@ p {
 }
 
 @media (min-width: 720px) {
+  .landing__vault-link,
+  .project-links__back-to-top {
+    font-size: clamp(0.88rem, 1.05vw, 0.98rem);
+  }
+
+  .site-footer strong {
+    font-size: clamp(1.75rem, 2.35vw, 2.05rem);
+  }
+
+  .site-footer p {
+    margin-top: 6px;
+    font-size: clamp(0.98rem, 1.2vw, 1.1rem);
+  }
+
   .game {
     padding-block: 46px 70px;
   }

@@ -98,7 +98,7 @@ export function ProjectUpdates() {
 }
 
 export function ProjectLinks() {
-  const { links } = siteConfig.copy;
+  const { links, footer } = siteConfig.copy;
   const items = [
     ["paper", siteConfig.paperUrl, links.labels.paper],
     ["presentation", siteConfig.presentationUrl, links.labels.presentation],
@@ -131,14 +131,15 @@ export function ProjectLinks() {
             </a>
           ))}
         </div>
+        <a className="project-links__back-to-top" href="#top">
+          {footer.backToTop}
+        </a>
       </div>
     </section>
   );
 }
 
 export function Footer() {
-  const { footer } = siteConfig.copy;
-
   return (
     <footer className="site-footer">
       <div className="wrap footer__inner">
@@ -149,11 +150,10 @@ export function Footer() {
           </p>
           {siteConfig.congressName && (
             <p>
-              {footer.presentedAtPrefix} {siteConfig.congressName}
+              {siteConfig.copy.footer.presentedAtPrefix} {siteConfig.congressName}
             </p>
           )}
         </div>
-        <a href="#top">{footer.backToTop}</a>
       </div>
     </footer>
   );
