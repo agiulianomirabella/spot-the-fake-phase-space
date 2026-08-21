@@ -142,7 +142,7 @@ export const questionBank = [
 
 export const siteConfig = {
   researcherName: "A. Giuliano Mirabella",
-  institution: "University of Seville · Medical Physics Group",
+  institution: "Medical Physics Group · University of Seville",
   projectName: "Deeply learning probabilistic patterns in radiotherapy with IMRT",
   congressName: "European Congress on Medical Physics 2026",
   projectDescription:
@@ -174,8 +174,6 @@ export const siteConfig = {
         "Can you spot which one is it?",
       start: "Start the challenge",
       preparing: "Preparing the samples…",
-      identity:
-        "A. Giuliano Mirabella, Ana Ureba Sánchez, Antonio Leal Plaza · University of Seville",
       vaultReturn: "Your Flow Vault is still unlocked ↓",
     },
     game: {

@@ -46,8 +46,6 @@ export function Landing({
           </button>
         )}
 
-        <p className="landing__identity">{landing.identity}</p>
-
         {vaultUnlocked && (
           <a className="landing__vault-link" href="#flow-vault">
             {landing.vaultReturn}
