@@ -72,7 +72,10 @@ export function Game({
 
         <div className={`game__choices${revealed ? " is-revealed" : ""}`}>
           {revealed && !imageFailed && (
-            <div className="answer" aria-live="polite">
+            <div
+              className={`answer ${isCorrect ? "answer--correct" : "answer--incorrect"}`}
+              aria-live="polite"
+            >
               <p className={`answer__headline ${isCorrect ? "is-correct" : "is-incorrect"}`}>
                 {isCorrect
                   ? game.correctFeedback
@@ -100,8 +103,10 @@ export function Game({
                 const isSelected = phaseSpace.id === selectedId;
                 const revealClass = revealed
                   ? phaseSpace.type === "fake"
-                    ? " phase-card--fake"
-                    : " phase-card--monte-carlo"
+                    ? " phase-card--correct"
+                    : isSelected
+                      ? " phase-card--incorrect"
+                      : ""
                   : "";
 
                 return (
