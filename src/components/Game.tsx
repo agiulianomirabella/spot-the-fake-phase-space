@@ -70,68 +70,70 @@ export function Game({
         <h2 id="game-prompt">{game.prompt}</h2>
         {question.context && <p className="game__context">{question.context}</p>}
 
-        {imageFailed ? (
-          <div className="load-notice load-notice--game" role="alert">
-            <p>{game.loadingError}</p>
-            <button className="button" type="button" onClick={onRecover}>
-              {game.replaceCase}
-            </button>
-          </div>
-        ) : (
-          <div className="phase-grid" aria-label={game.candidatesLabel}>
-            {question.phaseSpaces.map((phaseSpace, index) => {
-              const label = CARD_LABELS[index];
-              const isSelected = phaseSpace.id === selectedId;
-              const revealClass = revealed
-                ? phaseSpace.type === "fake"
-                  ? " phase-card--fake"
-                  : " phase-card--monte-carlo"
-                : "";
+        <div className={`game__choices${revealed ? " is-revealed" : ""}`}>
+          {revealed && !imageFailed && (
+            <div className="answer" aria-live="polite">
+              <p className={`answer__headline ${isCorrect ? "is-correct" : "is-incorrect"}`}>
+                {isCorrect
+                  ? game.correctFeedback
+                  : interpolate(game.incorrectFeedback, { correctLabel })}
+              </p>
+              <button className="button button--large" type="button" onClick={onNext}>
+                {roundIndex === ROUNDS_PER_ATTEMPT - 1
+                  ? game.seeResults
+                  : game.next}
+              </button>
+            </div>
+          )}
 
-              return (
-                <button
-                  className={`phase-card${isSelected ? " is-selected" : ""}${revealClass}`}
-                  type="button"
-                  key={phaseSpace.id}
-                  aria-pressed={isSelected}
-                  aria-label={`${game.choosePrefix} ${label}`}
-                  disabled={revealed}
-                  onClick={() => onSelect(phaseSpace)}
-                >
-                  <span className="phase-card__image-shell">
-                    <img
-                      src={resolveAssetPath(phaseSpace.image)}
-                      alt={phaseSpace.alt}
-                      width="600"
-                      height="600"
-                      loading="eager"
-                      decoding="async"
-                      onError={() => setImageFailed(true)}
-                    />
-                    <span className="phase-card__label" aria-hidden="true">
-                      {label}
+          {imageFailed ? (
+            <div className="load-notice load-notice--game" role="alert">
+              <p>{game.loadingError}</p>
+              <button className="button" type="button" onClick={onRecover}>
+                {game.replaceCase}
+              </button>
+            </div>
+          ) : (
+            <div className="phase-grid" aria-label={game.candidatesLabel}>
+              {question.phaseSpaces.map((phaseSpace, index) => {
+                const label = CARD_LABELS[index];
+                const isSelected = phaseSpace.id === selectedId;
+                const revealClass = revealed
+                  ? phaseSpace.type === "fake"
+                    ? " phase-card--fake"
+                    : " phase-card--monte-carlo"
+                  : "";
+
+                return (
+                  <button
+                    className={`phase-card${isSelected ? " is-selected" : ""}${revealClass}`}
+                    type="button"
+                    key={phaseSpace.id}
+                    aria-pressed={isSelected}
+                    aria-label={`${game.choosePrefix} ${label}`}
+                    disabled={revealed}
+                    onClick={() => onSelect(phaseSpace)}
+                  >
+                    <span className="phase-card__image-shell">
+                      <img
+                        src={resolveAssetPath(phaseSpace.image)}
+                        alt={phaseSpace.alt}
+                        width="600"
+                        height="600"
+                        loading="eager"
+                        decoding="async"
+                        onError={() => setImageFailed(true)}
+                      />
+                      <span className="phase-card__label" aria-hidden="true">
+                        {label}
+                      </span>
                     </span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {revealed && !imageFailed && (
-          <div className="answer" aria-live="polite">
-            <p className={`answer__headline ${isCorrect ? "is-correct" : "is-incorrect"}`}>
-              {isCorrect
-                ? game.correctFeedback
-                : interpolate(game.incorrectFeedback, { correctLabel })}
-            </p>
-            <button className="button button--large" type="button" onClick={onNext}>
-              {roundIndex === ROUNDS_PER_ATTEMPT - 1
-                ? game.seeResults
-                : game.next}
-            </button>
-          </div>
-        )}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </section>
     </main>
   );
