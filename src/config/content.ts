@@ -143,7 +143,7 @@ export const questionBank = [
 export const siteConfig = {
   researcherName: "A. Giuliano Mirabella",
   institution: "University of Seville · Medical Physics Group",
-  projectName: "MC Phase-Space Prediction",
+  projectName: "Deeply learning probabilistic patterns in radiotherapy with IMRT",
   congressName: "European Congress on Medical Physics 2026",
   projectDescription:
     "Conditional normalizing flows for generating stochastic radiotherapy phase-space samples, with Monte Carlo simulation as the reference.",
@@ -175,7 +175,7 @@ export const siteConfig = {
       start: "Start the challenge",
       preparing: "Preparing the samples…",
       identity:
-        "Deeply learning probabilistic patterns in radiotherapy with IMRT · A. Giuliano Mirabella, Ana Ureba Sánchez, Antonio Leal Plaza · University of Seville",
+        "A. Giuliano Mirabella, Ana Ureba Sánchez, Antonio Leal Plaza · University of Seville",
       vaultReturn: "Your Flow Vault is still unlocked ↓",
     },
     game: {
@@ -184,8 +184,6 @@ export const siteConfig = {
       contextPrefix: "Condition",
       candidatesLabel: "Phase-space candidates",
       choosePrefix: "Choose candidate",
-      generatedLabel: "Generated with AI",
-      monteCarloLabel: "Monte Carlo",
       correctFeedback: "Correct — you spotted the fake phase space.",
       incorrectFeedback:
         "The fake got past you. The correct answer was {correctLabel}.",

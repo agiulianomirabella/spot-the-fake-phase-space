@@ -331,7 +331,7 @@ p {
   display: grid;
   width: 100%;
   min-width: 0;
-  padding: 42px 8px 8px;
+  padding: 8px;
   overflow: hidden;
   color: var(--ink);
   background: var(--white);
@@ -349,8 +349,9 @@ p {
 
 .phase-card__label {
   position: absolute;
-  top: 8px;
+  top: 10px;
   left: 10px;
+  z-index: 1;
   display: grid;
   width: 28px;
   height: 28px;
@@ -360,9 +361,11 @@ p {
   font-size: 0.76rem;
   font-weight: 850;
   place-items: center;
+  box-shadow: 0 2px 8px rgba(7, 30, 48, 0.24);
 }
 
 .phase-card__image-shell {
+  position: relative;
   display: grid;
   width: 100%;
   overflow: hidden;
@@ -378,29 +381,10 @@ p {
   object-fit: contain;
 }
 
-.phase-card__reveal {
-  display: grid;
-  min-height: 58px;
-  padding: 8px 6px;
-  line-height: 1.25;
-  place-items: center;
-  text-align: center;
-}
-
-.phase-card__reveal strong {
-  color: var(--ink-blue);
-  font-size: 0.9rem;
-}
-
 .phase-card.is-selected {
   border-width: 3px;
-  padding: 40px 6px 6px;
+  padding: 6px;
   box-shadow: 0 0 0 4px rgba(255, 103, 0, 0.13), var(--shadow);
-}
-
-.phase-card.is-selected .phase-card__label {
-  top: 6px;
-  left: 8px;
 }
 
 .phase-card--fake {
@@ -971,7 +955,7 @@ p {
   .phase-card {
     grid-column: span 2;
     justify-items: center;
-    padding: 34px 5px 5px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 8px 22px rgba(47, 48, 51, 0.07);
   }
@@ -981,7 +965,7 @@ p {
   }
 
   .phase-card__label {
-    top: 6px;
+    top: 7px;
     left: 7px;
     width: 24px;
     height: 24px;
@@ -993,23 +977,8 @@ p {
     border-radius: 7px;
   }
 
-  .phase-card__reveal {
-    min-height: 44px;
-    padding: 6px 2px 3px;
-  }
-
-  .phase-card__reveal strong {
-    font-size: clamp(0.62rem, 2.7vw, 0.78rem);
-    line-height: 1.15;
-  }
-
   .phase-card.is-selected {
-    padding: 32px 3px 3px;
-  }
-
-  .phase-card.is-selected .phase-card__label {
-    top: 4px;
-    left: 5px;
+    padding: 3px;
   }
 
   .answer {

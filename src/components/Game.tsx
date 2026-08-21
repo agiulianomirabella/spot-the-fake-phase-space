@@ -98,9 +98,6 @@ export function Game({
                   disabled={revealed}
                   onClick={() => onSelect(phaseSpace)}
                 >
-                  <span className="phase-card__label" aria-hidden="true">
-                    {label}
-                  </span>
                   <span className="phase-card__image-shell">
                     <img
                       src={resolveAssetPath(phaseSpace.image)}
@@ -111,16 +108,10 @@ export function Game({
                       decoding="async"
                       onError={() => setImageFailed(true)}
                     />
-                  </span>
-                  {revealed && (
-                    <span className="phase-card__reveal">
-                      <strong>
-                        {phaseSpace.type === "fake"
-                          ? game.generatedLabel
-                          : game.monteCarloLabel}
-                      </strong>
+                    <span className="phase-card__label" aria-hidden="true">
+                      {label}
                     </span>
-                  )}
+                  </span>
                 </button>
               );
             })}
