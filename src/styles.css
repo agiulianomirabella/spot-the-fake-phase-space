@@ -243,8 +243,9 @@ p {
 }
 
 .landing__vault-link {
-  display: inline-block;
-  margin-top: 24px;
+  display: block;
+  width: fit-content;
+  margin: 24px auto 0;
   font-size: 0.88rem;
   font-weight: 750;
 }
