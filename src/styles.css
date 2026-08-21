@@ -53,18 +53,15 @@ body {
   min-height: 100dvh;
 }
 
-.app-shell--landing:not(.app-shell--extended) {
+.landing-viewport {
   display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
   grid-template-rows: minmax(0, 80vh) 20vh;
   grid-template-rows: minmax(0, 80dvh) 20dvh;
 }
 
-.app-shell--landing:not(.app-shell--extended) > main {
-  display: grid;
-  min-height: 0;
-}
-
-.app-shell--landing:not(.app-shell--extended) .landing {
+.landing-viewport .landing {
   min-height: 0;
 }
 

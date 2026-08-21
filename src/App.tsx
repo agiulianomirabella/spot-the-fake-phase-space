@@ -158,17 +158,15 @@ export default function App() {
   return (
     <div
       id="top"
-      className={`app-shell app-shell--${screen}${
-        screen === "landing" && vaultUnlocked ? " app-shell--extended" : ""
-      }`}
+      className={`app-shell app-shell--${screen}`}
     >
       <a className="skip-link" href="#main">
         {siteConfig.copy.skipLink}
       </a>
 
       {screen === "landing" && (
-        <>
-          <main id="main" tabIndex={-1}>
+        <main id="main" tabIndex={-1}>
+          <div className="landing-viewport">
             <Landing
               ready={!preparing && attempt.length === ROUNDS_PER_ATTEMPT}
               error={preparationError}
@@ -176,15 +174,15 @@ export default function App() {
               onStart={handleStart}
               onRetryPreparation={() => void loadAttempt(readStoredQuestionIds())}
             />
-            {vaultUnlocked && (
-              <>
-                <FlowVault />
-                <ProjectLinks />
-              </>
-            )}
-          </main>
-          <Footer />
-        </>
+            <Footer />
+          </div>
+          {vaultUnlocked && (
+            <>
+              <FlowVault />
+              <ProjectLinks />
+            </>
+          )}
+        </main>
       )}
 
       {screen === "game" && attempt[roundIndex] && (
