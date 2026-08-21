@@ -409,7 +409,7 @@ p {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  animation: answer-reveal 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: answer-reveal 630ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .answer--correct {

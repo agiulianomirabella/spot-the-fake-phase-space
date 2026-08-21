@@ -226,7 +226,7 @@ export const siteConfig = {
       shareUnavailable: "Copy the page URL to challenge a colleague.",
     },
     bridge: {
-      kicker: "The goal is not to “fool the eye”",
+      kicker: "But the goal is not to “fool the eye”",
       headline: "Could you spot the fake?",
       body:
         "If a generated phase space can look convincing beside true Monte Carlo phase spaces, that is interesting — but visual similarity alone is not enough. The real question is whether the model reproduces the relevant stochastic distributions and physical behaviour.",
